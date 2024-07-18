@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기장에서 노래 만들기 - 오디오잼</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="flex h-screen bg-gray-100">
+    <aside class="w-64 bg-gray-900 text-white p-6">
+        <div class="flex items-center mb-8">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-3">
+                <i class="fas fa-music text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold">AudioJam</h2>
+        </div>
+        <nav>
+            <ul class="space-y-2">
+                <li><a href="#service-intro" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-info-circle mr-3"></i>서비스 소개
+                </a></li>
+                <li><a href="#examples" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-list mr-3"></i>예제
+                </a></li>
+                <li><a href="#convert-music" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-exchange-alt mr-3"></i>음악 변환하기
+                </a></li>
+                <li><a href="#updates" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-history mr-3"></i>업데이트 내역
+                </a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="flex-1 p-8 overflow-auto gradient-bg">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-white">일기장에서 노래 만들기</h1>
+            <div class="glassmorphism p-6 mb-8">
+                <form action="/generate_song" method="post">
+                    <div class="mb-4">
+                        <label for="title" class="block text-sm font-medium text-white mb-2">일기 제목:</label>
+                        <input type="text" class="w-full px-3 py-2 bg-white bg-opacity-20 border border-gray-300 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="title" name="title" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="diary" class="block text-sm font-medium text-white mb-2">일기 내용:</label>
+                        <textarea class="w-full px-3 py-2 bg-white bg-opacity-20 border border-gray-300 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="diary" name="diary" rows="6" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="style" class="block text-sm font-medium text-white mb-2">노래 스타일:</label>
+                        <select class="w-full px-3 py-2 bg-white bg-opacity-20 border border-gray-300 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" id="style" name="style" required>
+                            <option value="발라드">발라드</option>
+                            <option value="락">락</option>
+                            <option value="힙합">힙합</option>
+                            <option value="재즈">재즈</option>
+                            <option value="클래식">클래식</option>
+                            <option value="EDM">EDM</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                        <i class="fas fa-music mr-2"></i>노래 만들기
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

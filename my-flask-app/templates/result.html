@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성된 노래 - 오디오잼</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="flex h-screen bg-gray-100">
+    <aside class="w-64 bg-gray-900 text-white p-6">
+        <div class="flex items-center mb-8">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center mr-3">
+                <i class="fas fa-music text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold">AudioJam</h2>
+        </div>
+        <nav>
+            <ul class="space-y-2">
+                <li><a href="#service-intro" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-info-circle mr-3"></i>서비스 소개
+                </a></li>
+                <li><a href="#examples" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-list mr-3"></i>예제
+                </a></li>
+                <li><a href="#convert-music" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-exchange-alt mr-3"></i>음악 변환하기
+                </a></li>
+                <li><a href="#updates" class="flex items-center py-2 px-4 hover:bg-gray-800 rounded transition duration-200">
+                    <i class="fas fa-history mr-3"></i>업데이트 내역
+                </a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="flex-1 p-8 overflow-auto gradient-bg">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-white">생성된 노래 가사</h1>
+            <div class="glassmorphism p-6 mb-8">
+                <pre class="text-white whitespace-pre-wrap">{{ song_lyrics }}</pre>
+            </div>
+            <a href="/" class="btn bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 inline-flex items-center">
+                <i class="fas fa-home mr-2"></i>처음으로 돌아가기
+            </a>
+        </div>
+    </main>
+</body>
+</html>
