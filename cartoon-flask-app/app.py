@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Path to your TFLite model
-MODEL_PATH = "/Users/seanp/Desktop/cartoon-flask-app/model.tflite"
+MODEL_PATH = "/home/ec2-user/lyricGen/cartoon-flask-app/model.tflite"
 interpreter = tf.lite.Interpreter(model_path=MODEL_PATH)
 interpreter.allocate_tensors()
 
